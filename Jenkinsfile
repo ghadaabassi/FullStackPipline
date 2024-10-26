@@ -28,7 +28,7 @@ pipeline {
                 dir("FullStackPipline/angular-app") {
                     sh "npm install -g @angular/cli"
                     sh "npm install" 
-                    sh "ng build --prod"
+                    sh "ng build --configuration production"
                     sh "docker build -t frontend ." 
                 }
             }
