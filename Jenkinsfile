@@ -26,6 +26,7 @@ pipeline {
         stage("Generate Angular image") {
             steps {
                 dir("FullStackPipline/angular-app") {
+                    sh "npm install -g @angular/cli"
                     sh "npm install" 
                     sh "ng build --prod"
                     sh "docker build -t frontend ." 
