@@ -15,7 +15,7 @@ services:
   backend:
     build:
       context: ./FullStackPipline/springboot
-      dockerfile: Dockerfile
+      dockerfile: docker-file
     container_name: backend
     environment:
       - SPRING_DATASOURCE_URL=jdbc:mysql://mysql:3306/demo
@@ -32,7 +32,7 @@ services:
   frontend:
     build:
       context: ./FullStackPipline/angular-app
-      dockerfile: Dockerfile
+      dockerfile: docker-file
     container_name: frontend
     ports:
       - "80:80"
