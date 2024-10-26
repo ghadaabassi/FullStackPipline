@@ -1,0 +1,48 @@
+version: '3.8'
+
+services:
+  mysql:
+    image: mysql:8
+    container_name: mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: demo
+      MYSQL_USER: root
+      MYSQL_PASSWORD: root
+    ports:
+      - "3306:3306"
+    networks:
+      - fullstack-network
+
+  backend:
+    build:
+      context: ./FullStackPipline/springboot
+      dockerfile: Dockerfile
+    container_name: backend
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:mysql://mysql:3306/demo
+      - SPRING_DATASOURCE_USERNAME=root
+      - SPRING_DATASOURCE_PASSWORD=root
+      - SPRING_JPA_HIBERNATE_DDL_AUTO=update
+    ports:
+      - "8090:8090"
+    depends_on:
+      - mysql
+    networks:
+      - fullstack-network
+
+  frontend:
+    build:
+      context: ./FullStackPipline/angular-app
+      dockerfile: Dockerfile
+    container_name: frontend
+    ports:
+      - "80:80"
+    depends_on:
+      - backend
+    networks:
+      - fullstack-network
+
+networks:
+  fullstack-network:
+    driver: bridge
