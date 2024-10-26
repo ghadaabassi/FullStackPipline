@@ -17,7 +17,7 @@ pipeline {
         }
         stage("Generate backend image") {
             steps {
-                dir("FullStackPipline/springboot") { 
+                dir("FullStackPipline/springboot/app") { 
                     sh "mvn clean install"
                     sh "docker build -t backend ." 
                 }
