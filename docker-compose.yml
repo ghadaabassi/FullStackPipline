@@ -14,7 +14,7 @@ services:
 
   backend:
     build:
-      context: ./FullStackPipline/springboot
+      context: ./FullStackPipline/springboot/app
       dockerfile: Dockerfile
     container_name: backend
     environment:
