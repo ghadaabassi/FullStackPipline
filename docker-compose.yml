@@ -29,7 +29,6 @@ services:
       - mysql
     networks:
       - fullstack-network
-
   frontend:
     build:
       context: ./angular-app
