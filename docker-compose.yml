@@ -5,8 +5,8 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: root
       MYSQL_DATABASE: demo
-      MYSQL_USER: root
-      MYSQL_PASSWORD: root
+      MYSQL_USER: demo_user
+      MYSQL_PASSWORD: demo_pass
     ports:
       - "3306:3306"
     networks:
