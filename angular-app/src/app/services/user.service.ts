@@ -7,7 +7,7 @@ import { User } from '../models/User';
   providedIn: 'root',
 })
 export class UserService {
-  baseURL: string = 'http://backend:8090/user';
+  baseURL: string = 'http://localhost:8090/user';
   constructor(private httpClient: HttpClient) {}
 
   getAllUsers(): Observable<any> {
