@@ -4,8 +4,6 @@ VOLUME /tmp
 
 ADD target/*.jar app.jar
 
-
-
 CMD ["java", "-jar", "app.jar"]
 
 EXPOSE 8090
