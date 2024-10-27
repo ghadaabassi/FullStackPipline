@@ -10,7 +10,7 @@ services:
     networks:
       - fullstack-network
     volumes:
-      - ./mysql-init:/docker-entrypoint-initdb.d
+      - ./mysql-init/init.sql
 
   backend:
     build:
