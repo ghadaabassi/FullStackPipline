@@ -24,7 +24,7 @@ services:
       SPRING_DATASOURCE_DRIVER_CLASS_NAME: com.mysql.cj.jdbc.Driver
       SPRING_JPA_HIBERNATE_DDL_AUTO: update
     ports:
-      - "0.0.0.0:8090:8090"
+      - "0.0.0.0:8090:8080"
     depends_on:
       - mysql
     networks:
