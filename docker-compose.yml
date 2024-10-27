@@ -14,7 +14,7 @@ services:
 
   backend:
     build:
-      context: ./FullStackPipline/springboot/app
+      context: ./springboot/app
       dockerfile: Dockerfile
     container_name: backend
     environment:
@@ -31,7 +31,7 @@ services:
 
   frontend:
     build:
-      context: ./FullStackPipline/angular-app
+      context: ./angular-app
       dockerfile: Dockerfile
     container_name: frontend
     ports:
