@@ -4,30 +4,29 @@ import { Observable, last } from 'rxjs';
 import { User } from '../models/User';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class UserService {
+  baseURL: string = 'http://backend:8090/user';
+  constructor(private httpClient: HttpClient) {}
 
-  baseURL:string="http://localhost:8082/user"
-  constructor(private  httpClient:HttpClient) { }
-
-  getAllUsers():Observable<any>{
+  getAllUsers(): Observable<any> {
     let headers = new HttpHeaders();
-    headers.append("Access-Control-Allow-Origin", "*")
-    return this.httpClient.get(this.baseURL + "/all",{headers})
+    headers.append('Access-Control-Allow-Origin', '*');
+    return this.httpClient.get(this.baseURL + '/all', { headers });
   }
 
-  deleteUser(id:string):Observable<any>{
+  deleteUser(id: string): Observable<any> {
     let headers = new HttpHeaders();
-    headers.append("Access-Control-Allow-Origin", "*")
-    return this.httpClient.delete(this.baseURL + "/delete/"+id,{headers})
+    headers.append('Access-Control-Allow-Origin', '*');
+    return this.httpClient.delete(this.baseURL + '/delete/' + id, { headers });
   }
 
-  addUser(firstname:string,lastname:string):Observable<any>{
+  addUser(firstname: string, lastname: string): Observable<any> {
     let body = { firstName: firstname, lastName: lastname };
-    let url=this.baseURL + "/add";
+    let url = this.baseURL + '/add';
     let headers = new HttpHeaders();
-    headers.append("Access-Control-Allow-Origin", "*")
-    return this.httpClient.post(url,body,{headers})
+    headers.append('Access-Control-Allow-Origin', '*');
+    return this.httpClient.post(url, body, { headers });
   }
 }
