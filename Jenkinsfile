@@ -40,5 +40,17 @@ pipeline {
                 }
             }
         }
+
+        stage("SonarQube Analysis") {
+            steps {
+                withSonarQubeEnv("sonar-server") { 
+                     dir("FullStackPipline") { 
+                    sh "mvn sonar:sonar"
+                }
+                }
+            }
+        }
+
+        
     }
 }
