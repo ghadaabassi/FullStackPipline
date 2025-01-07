@@ -12,7 +12,7 @@ pipeline {
         }
         stage("Clone repos") {
             steps {
-                sh 'git clone https://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@github.com/ghadaabassi/FullStackPipline.git'
+                sh 'git clone https://github.com/ghadaabassi/FullStackPipline.git'
             }
         }
         stage("Generate backend image") {
